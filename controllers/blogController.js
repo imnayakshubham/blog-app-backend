@@ -30,6 +30,8 @@ const getBlogs = async (req, res) => {
         return res.status(200).json({ message: "Blogs fetched successfully", status: "Success", result: { blogs, total: totalBlogs } })
     } catch (error) {
         console.log({ error })
+        return res.status(200).json({ message: error, status: "Failed" })
+
     }
 }
 
