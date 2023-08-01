@@ -3,9 +3,9 @@ import Blog from "../Schema/blogSchema.js";
 
 
 const addBlog = async (req, res) => {
-    const { title, description, category } = req.body;
+    const { title, content } = req.body;
     try {
-        if (!title || !description || !category) {
+        if (!title || !content) {
             return res.status(422).json({ message: "Please add all the fields", status: "Failed" })
         }
         const blog = await Blog.create({ ...req.body, posted_by: req.user });

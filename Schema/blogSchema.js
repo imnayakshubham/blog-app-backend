@@ -5,11 +5,11 @@ const blogSchema = mongoose.Schema({
     title: {
         type: String,
         required: [true, 'Title is required']
-
     },
-    description: {
+    sub_title: {
         type: String,
-        required: [true, 'Description is required']
+        required: false,
+        default: null
     },
     tags: {
         type: [String],
@@ -23,10 +23,14 @@ const blogSchema = mongoose.Schema({
         type: ObjectId,
         ref: 'User'
     },
-    photo: {
+    cover_image: {
         type: String,
         // required: true
         default: null
+    },
+    content: {
+        type: [Object],
+        required: [true, 'Content is required']
     },
     likes: {
         type: [ObjectId],
